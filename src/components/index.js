@@ -1,3 +1,8 @@
+import '../pages/index.css';
+import { initialCards } from './cards.js';
+import { createCard } from './card.js';
+
+
 // 1)темплейт карточки
 const cardTemplate = document.querySelector("#card-template").content;
 
@@ -31,18 +36,7 @@ function initializeModals() {
     closeImageModalButton.addEventListener("click", () => toggleModal(imagePopup, false));
 }
 
-// 4)функция создания карточки
-function createCard({ name, link }) {
-    const cardElement = cardTemplate.cloneNode(true);
-    const imageElement = cardElement.querySelector(".card__image");
 
-    imageElement.src = link;
-    imageElement.alt = name;
-    cardElement.querySelector(".card__title").textContent = name;
-
-    attachCardEventHandlers(cardElement, name, link);
-    return cardElement;
-}
 
 //события для карточки
 function attachCardEventHandlers(cardElement, name, link) {
